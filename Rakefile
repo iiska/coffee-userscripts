@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 
+require 'rake'
 require 'coffee-script'
 
 require 'pathname'
@@ -33,4 +34,17 @@ end
 desc 'Show userscript dir in Firefox'
 task :show do
   system("firefox file://#{Dir.pwd}/js")
+end
+
+desc 'Create new coffee file and insert template userscript comment block'
+task :new, :file do |t,args|
+  File.open("./coffee/#{args[:file]}.user.coffee", "w") do |f|
+    f.puts '# ==UserScript=='
+    f.puts '# @name        Name'
+    f.puts '# @namespace   http://example.com/namespace'
+    f.puts '# @description Describe your script here...'
+    f.puts '# @include     http://...'
+    f.puts '# @require     http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'
+    f.puts '# ==/UserScript=='
+  end
 end

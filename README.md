@@ -19,3 +19,8 @@ Put some scripts into coffee directory and execute rake task.
 Open scripts directory in browser
 
     rake show
+
+Create new userscript file with template comment block at the beginning.
+
+    rake new[new-file-name-without-extension]
+
