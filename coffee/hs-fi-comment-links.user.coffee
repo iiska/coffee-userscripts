@@ -9,7 +9,6 @@
 $('li.item.post').each((i, index) ->
         self = $(this)
         ref = self.find('div.recommend a').attr('name')
-        console.log(ref)
         stamp = $(self.find('p.author span.timePosted')[0])
         text = stamp.text()
         stamp.empty().append(
