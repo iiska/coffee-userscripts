@@ -4,6 +4,7 @@ require 'bundler/setup'
 require 'rake'
 require 'coffee-script'
 
+require 'erb'
 require 'pathname'
 require 'fileutils'
 
@@ -38,13 +39,8 @@ end
 
 desc 'Create new coffee file and insert template userscript comment block'
 task :new, :file do |t,args|
+  @require = "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
   File.open("./coffee/#{args[:file]}.user.coffee", "w") do |f|
-    f.puts '# ==UserScript=='
-    f.puts '# @name        Name'
-    f.puts '# @namespace   http://example.com/namespace'
-    f.puts '# @description Describe your script here...'
-    f.puts '# @include     http://...'
-    f.puts '# @require     http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'
-    f.puts '# ==/UserScript=='
+    f.puts ERB.new(File.read('new.erb')).result(binding)
   end
 end
