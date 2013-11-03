@@ -4,12 +4,10 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.1.2)
-    execjs (1.2.5)
-      multi_json (~> 1.0)
-    json (1.6.0)
-    multi_json (1.0.3)
-    rake (0.9.2)
+    coffee-script-source (1.6.3)
+    execjs (2.0.2)
+    json (1.8.1)
+    rake (0.9.6)
 
 PLATFORMS
   ruby
